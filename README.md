@@ -43,8 +43,7 @@ Run the following command:
 docker compose up -d
 ```
 ## Import Data
-Run `docker exec -it web bash`
-Run `rake import_data`
+Run `docker exec -it web rake import_data`
 
 
 ## Questions
