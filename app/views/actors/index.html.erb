@@ -1,0 +1,23 @@
+<h1>Actors</h1>
+
+<%= form_with url: actors_path, method: :get, local: true do |form| %>
+  <%= form.text_field :query, placeholder: 'Search by name' %>
+  <%= form.submit 'Search' %>
+<% end %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody id="actors" data-controller="turbo-frame">
+    <%= turbo_frame_tag 'actors' do %>
+      <%= render @actors %>
+    <% end %>
+  </tbody>
+</table>
+
+<%= turbo_frame_tag 'pagination' do %>
+  <%== pagy_nav(@pagy) if @pagy.pages > 1 %>
+<% end %>
